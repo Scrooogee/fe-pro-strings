@@ -4,7 +4,12 @@
  * @param {string} string
  * @returns {string}
  */
-export const replaceZAndVFromString = (string) => {};
+export const replaceZAndVFromString = (string) => {
+
+    let myString = string.toLocaleLowerCase();
+    let stringReplace = myString.replaceAll('z', '*').replaceAll('v', '*')
+    return stringReplace
+};
 
 /**
  * Функция должна принять 3 аргумента и все строки. Мы передаем строку,
@@ -16,7 +21,13 @@ export const replaceZAndVFromString = (string) => {};
  * @param {string} newWord
  * @returns {string}
  */
-export const changeWord = (string, word, newWord) => {};
+export const changeWord = (string, word, newWord) => {
+
+    if (string.includes(word)) {
+        return `${string.replace(word, newWord)}`
+    }
+    return string;
+};
 
 /**
  * Должна вернуть строку(1 аргумент) на обрезанную по длине(2 аргумент, число)
@@ -24,7 +35,9 @@ export const changeWord = (string, word, newWord) => {};
  * @param {number} length
  * @returns {string}
  */
-export const truncate = (string, length) => {};
+export const truncate = (string, length) => {
+    return string.slice(0, length)
+};
 
 /**
  * Принимает строку в первом аргументе, и символ во втором
@@ -37,7 +50,16 @@ export const truncate = (string, length) => {};
  * @param {string} symbol
  * @returns {number}
  */
-export const quantityOfSymbols = (string, symbol) => {};
+export const quantityOfSymbols = (string, symbol) => {
+    let result = 0;
+
+    for (let i = 0; i <= string.length; i++) {
+        if (string.toLocaleLowerCase()[i] === symbol.toLocaleLowerCase()) {
+            result++
+        }
+    }
+    return result
+};
 
 /**
  * Принимает строку в первом аргументе, и символ во втором
@@ -54,4 +76,20 @@ export const quantityOfSymbols = (string, symbol) => {};
  * @param {string} symbol
  * @returns {number}
  */
-export const quantityOfSymbolsWithIndexOf = (string, symbol) => {};
+export const quantityOfSymbolsWithIndexOf = (string, symbol) => {
+
+    let result = 0;
+    let stringToLow = string.toLocaleLowerCase();
+    const symbolToLow = symbol.toLocaleLowerCase();
+
+    while(true) {
+        if (stringToLow.includes(symbolToLow)) {
+            stringToLow = `${stringToLow.slice(stringToLow.indexOf(symbolToLow) + 1)}`
+            result++
+        } else {
+            break
+        }
+    }
+
+    return result
+};
