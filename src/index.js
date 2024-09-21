@@ -7,8 +7,8 @@
 export const replaceZAndVFromString = (string) => {
 
     let myString = string.toLocaleLowerCase();
-    let stringReplace = myString.replaceAll('z', '*').replaceAll('v', '*')
-    return stringReplace
+    let stringReplace = myString.replaceAll('z', '*').replaceAll('v', '*');
+    return stringReplace;
 };
 
 /**
